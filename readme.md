@@ -1,4 +1,8 @@
-# Python dependencies
+# Jupyter Lab Docker image
+
+A ready-to-run Docker image containing Jupyter Lab and data analysis computing tools.
+
+## Python dependencies
 
 To maintain reproducability, it's important to keep track of all the Python requirements 
 needed to run the processing. To do so, all active dependencies and their versions are
@@ -18,13 +22,13 @@ pip install --requirement requirements.txt
 ```
 
 
-# Docker image
+## Docker image
 
 To do all the processing in a reproducible way, Docker is used to have a completely
 portable, cross-platform system that encapsulates all dependencies. The docker container
 is centered around JupyterLab and Python3.
 
-## Building the Docker image
+### Building the Docker image
 
 Run this from the repository root directory, this will then build the docker image and
 install all the dependencies from requirements.txt
@@ -33,7 +37,7 @@ install all the dependencies from requirements.txt
 docker build -t jupyterlab-base .
 ```
 
-## Running the Docker container
+### Running the Docker container
 
 Run this from the repository root directory
 
@@ -44,7 +48,7 @@ docker run -v "$pwd\:/notebooks" -p 10000:10000 --env-file docker.env jupyterlab
 You can now find the link to the Jupyter Notebooks in the output of the container (with the 
 required token)
 
-## Environment variables file
+### Environment variables file
 
 The command above assumes that there's a docker.env file next to the Dockerfile. The
 use of this file is to pass environment variables to the container. Because it can 
