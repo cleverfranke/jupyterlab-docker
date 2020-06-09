@@ -2,8 +2,7 @@
 FROM python:3.7-slim
 
 # Install native requirements and useful tools
-RUN apt-get update
-RUN apt-get install -y nano file zip
+RUN apt-get update && apt-get install -y --no-install-recommends nano file zip && rm -rf /var/lib/apt/lists/*
 
 # Upgrade pip
 RUN pip install --upgrade pip
@@ -16,15 +15,7 @@ RUN pip install matplotlib==3.2.1
 RUN pip install altair==4.1.0
 
 # Nbconvert dependencies (for saving pdf)
-RUN apt-get update
-RUN apt-get install -y pandoc 
-RUN apt-get install -y texlive-xetex 
-RUN apt-get install -y texlive-fonts-recommended 
-RUN apt-get install -y texlive-generic-recommended
-
-# Cleanup
-RUN apt-get clean
-RUN apt-get autoremove --purge
+RUN apt-get update && apt-get install -y --no-install-recommends pandoc texlive-xetex texlive-fonts-recommended  texlive-generic-recommended && rm -rf /var/lib/apt/lists/*
 
 # Install additional python dependencies
 COPY requirements.txt /tmp/
