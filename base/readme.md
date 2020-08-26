@@ -34,7 +34,7 @@ Run this from the repository root directory, this will then build the docker ima
 install all the dependencies from requirements.txt
 
 ```sh
-docker build -t jupyterlab-base .
+docker build -t cleverfranke/jupyterlab-geo .
 ```
 
 ### Running the Docker container
@@ -42,7 +42,7 @@ docker build -t jupyterlab-base .
 Run this from the repository root directory
 
 ```sh
-docker run -v "$pwd\:/notebooks" -p 10000:10000 --env-file docker.env jupyterlab-base
+docker run -v "$pwd\:/notebooks" -p 10000:10000 --env-file docker.env cleverfranke/jupyterlab-geo:latest
 ```
 
 You can now find the link to the Jupyter Notebooks in the output of the container (with the 
