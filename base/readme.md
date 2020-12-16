@@ -42,7 +42,7 @@ docker build -t cleverfranke/jupyterlab-geo .
 Run this from the repository root directory
 
 ```sh
-docker run -v "$pwd\:/notebooks" -p 10000:10000 --env-file docker.env cleverfranke/jupyterlab-geo:latest
+docker run -v "$pwd\:/notebooks" -p 10000:10000 --env-file docker.env cleverfranke/jupyterlab-base:latest
 ```
 
 You can now find the link to the Jupyter Notebooks in the output of the container (with the 
